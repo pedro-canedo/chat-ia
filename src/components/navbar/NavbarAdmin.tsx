@@ -114,6 +114,17 @@ export default function AdminNavbar(props: {
         alignItems={{ xl: 'center' }}
         mb={gap}
       >
+        <Box ml="auto">
+          {/* <IconButton
+            aria-label="Abrir menu"
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            onClick={handleToggle}
+            variant="ghost"
+            colorScheme="teal"
+            size="lg"
+          /> */}
+          <AdminNavbarLinks setApiKey={setApiKey} secondary={props.secondary} />
+        </Box>
         <Stack
           direction={{ base: isOpen ? 'column' : 'row', md: 'row' }}
           display={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
@@ -124,41 +135,31 @@ export default function AdminNavbar(props: {
         >
           <Box mb={{ base: '8px', md: '0px' }}>
             <Link
-              color={mainText}
-              href="#"
-              bg="inherit"
-              borderRadius="inherit"
-              fontWeight="bold"
-              fontSize="34px"
-              p="0px"
-              _hover={{ color: { mainText } }}
-              _active={{
-                bg: 'inherit',
-                transform: 'none',
-                borderColor: 'transparent',
-              }}
-              _focus={{
-                boxShadow: 'none',
-              }}
+              w="100%"
+              display="flex"
+              justifyContent={{ base: 'center', md: 'space-between' }}
+              alignItems={{ xl: 'center' }}
+              mb={gap}
+              href="/"
+              style={{ fontSize: 'larger' }} // Aumentar a fonte
             >
               {brandText}
             </Link>
           </Box>
-          {/* caixa para ficar fixa ao final na direita os itens  */}
-          <Box
-            sx={{
-              position: 'absolute',
-              right: '0',
-              top: '0',
-            }}
-          >
-            <AdminNavbarLinks
-              setApiKey={setApiKey}
-              secondary={props.secondary}
-            />
-          </Box>
         </Stack>
       </Flex>
+      {/* {isOpen ? (
+        <Box
+          w="100%"
+          h="100vh"
+          position="absolute"
+          top="0"
+          left="0"
+          zIndex="99"
+          bg="rgba(0,0,0,0.5)"
+          onClick={handleToggle}
+        ></Box>
+      ) : null} */}
     </Box>
   );
 }

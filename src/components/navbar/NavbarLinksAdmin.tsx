@@ -10,22 +10,5 @@ export default function HeaderLinks(props: {
 }) {
   const { setApiKey } = props;
 
-  return (
-    <Box>
-      <span>Chave de Api Para GPT: {}</span>
-      <APIModal setApiKey={setApiKey} />
-
-      {/* <SearchBar
-        mb={() => {
-          if (secondary) {
-            return { base: '10px', md: 'unset' };
-          }
-          return 'unset';
-        }}
-        me="10px"
-        borderRadius="30px"
-      /> */}
-      {/* <SidebarResponsive routes={routes} /> */}
-    </Box>
-  );
+  return <APIModal setApiKey={setApiKey} />;
 }

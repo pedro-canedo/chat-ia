@@ -78,7 +78,7 @@ function APIModal(props: { setApiKey: any; sidebar?: boolean }) {
           _selected={{ bg: 'none' }}
           bg="none !important"
         >
-          <Icon w="18px" h="18px" as={MdLock} color={navbarIcon} />
+          <Icon w="30px" h="30px" as={MdLock} color={navbarIcon} />
         </Button>
       )}
 
