@@ -113,20 +113,19 @@ export const inputStyles = {
       variants: {
         main: (props: any) => ({
           field: {
-            bg: mode('transparent', 'navy.800')(props),
+            bg: mode('transparent', 'dracula.background')(props),
             border: '1px solid',
-            color: 'gray.500',
-            borderColor: mode('gray.200', 'whiteAlpha.100')(props),
+            color: mode('dracula.foreground', 'white')(props),
+            borderColor: mode('dracula.comment', 'whiteAlpha.100')(props),
             borderRadius: '12px',
-            _placeholder: { color: 'navy.700' },
-          },
-          icon: {
-            color: 'gray.500',
+            fontSize: 'sm',
+            p: '20px',
+            _placeholder: { color: 'dracula.comment' },
           },
         }),
         mini: (props: any) => ({
           field: {
-            bg: mode('transparent', 'navy.800')(props),
+            bg: mode('transparent', 'dracula.background')(props),
             border: '0px solid transparent',
             fontSize: '0px',
             p: '10px',
@@ -157,7 +156,7 @@ export const inputStyles = {
             bg: 'transparent',
             border: '0px solid',
             width: 'min-content',
-            color: mode('gray.500', 'gray.500')(props),
+            color: mode('gray.500', 'dracula.background')(props),
             borderColor: 'transparent',
             padding: '0px',
             paddingLeft: '8px',

@@ -94,14 +94,18 @@ export const globalStyles = {
     global: (props: any) => ({
       body: {
         overflowX: 'hidden',
-        bg: mode('#fdfeff', 'navy.900')(props),
+        bg: mode('#1A202C', 'navy.900')(props), // alterado para um tom de cinza escuro
+        color: '#ffffff', // adicionado cor de texto branca
         fontFamily: 'Plus Jakarta Sans',
       },
       input: {
-        color: 'gray.700',
+        color: '#ffffff', // alterado para branco
+        backgroundColor: '#2D3748', // adicionado fundo cinza escuro
       },
       html: {
         fontFamily: 'Plus Jakarta Sans',
+        backgroundColor: '#1A202C', // adicionado fundo cinza escuro
+        color: '#ffffff', // adicionado cor de texto branca
       },
     }),
   },

@@ -1,7 +1,7 @@
 'use client';
 /*eslint-disable*/
 import { ChatBody, OpenAIModel } from '@/types/types';
-import { Flex, Img, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Img, useColorModeValue } from '@chakra-ui/react';
 import { useState } from 'react';
 import Bg from '../public/img/chat/bg-image.png';
 import ModelSelector from '../src/components/chat/modelSelector';
@@ -22,9 +22,8 @@ export default function Chat(props: { apiKeyApp: string }) {
     'linear-gradient(180deg, #FBFBFF 0%, #CACAFF 100%)',
     'whiteAlpha.200',
   );
-  const brandColor = useColorModeValue('brand.500', 'white');
+
   const buttonBg = useColorModeValue('white', 'whiteAlpha.100');
-  const gray = useColorModeValue('gray.500', 'white');
   const buttonShadow = useColorModeValue(
     '14px 27px 45px rgba(112, 144, 176, 0.2)',
     'none',
@@ -157,51 +156,52 @@ export default function Chat(props: { apiKeyApp: string }) {
         minH={{ base: '75vh', '2xl': '85vh' }}
         maxW="1000px"
       >
-        {/* Model Change */}
-        <ModelSelector
-          currentModel={model}
-          onSelectModel={setModel}
-          outputCode={outputCode}
-          styles={{
-            buttonBg: buttonBg,
-            textColor: textColor,
-            bgIcon: bgIcon,
-            buttonShadow: buttonShadow,
-            iconColor: iconColor,
-          }}
-        />
-
-        {/* Main Box */}
-        <MainBox
-          inputOnSubmit={inputOnSubmit}
-          outputCode={outputCode}
-          styles={{
-            buttonBg: buttonBg,
-            textColor: textColor,
-            bgIcon: bgIcon,
-            buttonShadow: buttonShadow,
-            iconColor: iconColor,
-          }}
-        />
-
-        {/* Chat Input */}
-        <InputChat
-          handleChange={handleChange}
-          handleTranslate={handleTranslate}
-          loading={loading}
-          styles={{
-            borderColor: borderColor,
-            inputColor: inputColor,
-            placeholderColor: placeholderColor,
-          }}
-        />
-
         <Flex
-          justify="center"
-          mt="20px"
-          direction={{ base: 'column', md: 'row' }}
-          alignItems="center"
-        ></Flex>
+          direction="column"
+          mx="auto"
+          w={{ base: '100%', md: '100%', xl: '100%' }}
+          minH={{ base: '75vh', '2xl': '85vh' }}
+          maxW="1000px"
+        >
+          {/* Model Change */}
+          <ModelSelector
+            currentModel={model}
+            onSelectModel={setModel}
+            outputCode={outputCode}
+            styles={{
+              buttonBg: buttonBg,
+              textColor: textColor,
+              bgIcon: bgIcon,
+              buttonShadow: buttonShadow,
+              iconColor: iconColor,
+            }}
+          />
+
+          {/* Main Box */}
+          <MainBox
+            inputOnSubmit={inputOnSubmit}
+            outputCode={outputCode}
+            styles={{
+              buttonBg: buttonBg,
+              textColor: textColor,
+              bgIcon: bgIcon,
+              buttonShadow: buttonShadow,
+              iconColor: iconColor,
+            }}
+          />
+
+          {/* Chat Input */}
+          <InputChat
+            handleChange={handleChange}
+            handleTranslate={handleTranslate}
+            loading={loading}
+            styles={{
+              borderColor: borderColor,
+              inputColor: inputColor,
+              placeholderColor: placeholderColor,
+            }}
+          />
+        </Flex>
       </Flex>
     </Flex>
   );

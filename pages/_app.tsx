@@ -49,7 +49,7 @@ function App({ Component, pageProps }: AppProps<{}>) {
               <Navbar
                 setApiKey={setApiKey}
                 onOpen={onOpen}
-                logoText={'Horizon UI Dashboard PRO'}
+                logoText={'Chat from AI'}
                 brandText={getActiveRoute(routes, pathname)}
                 secondary={getActiveNavbar(routes, pathname)}
               />
@@ -62,7 +62,17 @@ function App({ Component, pageProps }: AppProps<{}>) {
             minH="100vh"
             pt="50px"
           >
-            <Component apiKeyApp={apiKey} {...pageProps} />
+            <Box
+              sx={{
+                '@media screen and (max-width: 768px)': {
+                  width: '100%',
+                  padding: '0px',
+                  margin: '0px',
+                },
+              }}
+            >
+              <Component apiKeyApp={apiKey} {...pageProps} />
+            </Box>
           </Box>
           <Box>
             <Footer />

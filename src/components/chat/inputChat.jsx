@@ -11,6 +11,12 @@ const InputChat = ({ handleChange, handleTranslate, loading, styles }) => {
             ms={{ base: '0px', xl: '60px' }}
             mt="20px"
             justifySelf={'flex-end'}
+            w="100%"
+            h="54px"
+            bg={styles.bg}
+            borderRadius="45px"
+            alignItems="center"
+            boxShadow="0px 21px 27px -10px rgba(96, 60, 255, 0.48)"
         >
             <Input
                 minH="54px"
@@ -23,7 +29,10 @@ const InputChat = ({ handleChange, handleTranslate, loading, styles }) => {
                 fontSize="sm"
                 fontWeight="500"
                 _focus={{ borderColor: 'none' }}
-                color={styles.inputColor}
+                color={
+                    styles.color
+
+                }
                 _placeholder={styles.placeholderColor}
                 placeholder="Digite sua mensagem aqui..."
                 onChange={handleChange}

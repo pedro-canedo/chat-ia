@@ -1,6 +1,3 @@
-'use client';
-/* eslint-disable */
-// Chakra Imports
 import {
   Box,
   Breadcrumb,
@@ -9,10 +6,13 @@ import {
   Flex,
   Link,
   useColorModeValue,
+  IconButton,
+  Stack,
 } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import AdminNavbarLinks from './NavbarLinksAdmin';
 import { isWindowAvailable } from '@/utils/navigation';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'; // Importando ícones
 
 export default function AdminNavbar(props: {
   secondary: boolean;
@@ -22,6 +22,11 @@ export default function AdminNavbar(props: {
   setApiKey: any;
 }) {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Estado para controlar a abertura do menu
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     isWindowAvailable() && window.addEventListener('scroll', changeNavbar);
@@ -109,45 +114,50 @@ export default function AdminNavbar(props: {
         alignItems={{ xl: 'center' }}
         mb={gap}
       >
-        <Box mb={{ base: '8px', md: '0px' }}>
-          <Breadcrumb>
-            <BreadcrumbItem color={secondaryText} fontSize="sm" mb="5px">
-              <BreadcrumbLink href="#" color={secondaryText}>
-                Pages
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem color={secondaryText} fontSize="sm">
-              <BreadcrumbLink href="#" color={secondaryText}>
-                {brandText}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-          {/* Here we create navbar brand, based on route name */}
-          <Link
-            color={mainText}
-            href="#"
-            bg="inherit"
-            borderRadius="inherit"
-            fontWeight="bold"
-            fontSize="34px"
-            p="0px"
-            _hover={{ color: { mainText } }}
-            _active={{
-              bg: 'inherit',
-              transform: 'none',
-              borderColor: 'transparent',
-            }}
-            _focus={{
-              boxShadow: 'none',
+        <Stack
+          direction={{ base: isOpen ? 'column' : 'row', md: 'row' }}
+          display={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
+          width={{ base: 'full', md: 'auto' }}
+          alignItems="center"
+          flexGrow={1}
+          mt={{ base: 4, md: 0 }}
+        >
+          <Box mb={{ base: '8px', md: '0px' }}>
+            <Link
+              color={mainText}
+              href="#"
+              bg="inherit"
+              borderRadius="inherit"
+              fontWeight="bold"
+              fontSize="34px"
+              p="0px"
+              _hover={{ color: { mainText } }}
+              _active={{
+                bg: 'inherit',
+                transform: 'none',
+                borderColor: 'transparent',
+              }}
+              _focus={{
+                boxShadow: 'none',
+              }}
+            >
+              {brandText}
+            </Link>
+          </Box>
+          {/* caixa para ficar fixa ao final na direita os itens  */}
+          <Box
+            sx={{
+              position: 'absolute',
+              right: '0',
+              top: '0',
             }}
           >
-            {brandText}
-          </Link>
-        </Box>
-        <Box ms="auto" w={{ sm: '100%', md: 'unset' }}>
-          <AdminNavbarLinks setApiKey={setApiKey} secondary={props.secondary} />
-        </Box>
+            <AdminNavbarLinks
+              setApiKey={setApiKey}
+              secondary={props.secondary}
+            />
+          </Box>
+        </Stack>
       </Flex>
     </Box>
   );

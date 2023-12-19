@@ -14,39 +14,38 @@ export const textareaStyles = {
           field: {
             bg: mode('transparent', 'navy.800')(props),
             border: '1px solid !important',
-            color: mode('navy.700', 'white')(props),
+            color: mode('white', 'whiteAlpha.900')(props),
             borderColor: mode('gray.200', 'whiteAlpha.100')(props),
             borderRadius: '16px',
             fontSize: 'sm',
             p: '20px',
-            _placeholder: { color: 'navy.700' },
+            _placeholder: { color: mode('white', 'whiteAlpha.900')(props) },
           },
         }),
-        auth: () => ({
+        auth: (props: any) => ({
           field: {
-            bg: 'white',
+            bg: mode('white', 'navy.800')(props),
             border: '1px solid',
-            borderColor: 'gray.200',
+            borderColor: mode('gray.200', 'whiteAlpha.100')(props),
             borderRadius: '16px',
-            _placeholder: { color: 'gray.500' },
+            _placeholder: { color: mode('white', 'whiteAlpha.900')(props) },
           },
         }),
-        authSecondary: () => ({
+        authSecondary: (props: any) => ({
           field: {
-            bg: 'white',
+            bg: mode('white', 'navy.800')(props),
             border: '1px solid',
-
-            borderColor: 'gray.200',
+            borderColor: mode('gray.200', 'whiteAlpha.100')(props),
             borderRadius: '16px',
-            _placeholder: { color: 'navy.700' },
+            _placeholder: { color: mode('white', 'whiteAlpha.900')(props) },
           },
         }),
-        search: () => ({
+        search: (props: any) => ({
           field: {
             border: 'none',
             py: '11px',
             borderRadius: 'inherit',
-            _placeholder: { color: 'navy.700' },
+            _placeholder: { color: mode('white', 'whiteAlpha.900')(props) },
           },
         }),
       },

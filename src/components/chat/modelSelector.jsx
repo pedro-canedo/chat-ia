@@ -21,7 +21,7 @@ const ModelSelector = ({ currentModel, onSelectModel, outputCode, styles }) => {
                     h="70px"
                     boxShadow={currentModel === 'gpt-3.5-turbo' ? styles.buttonShadow : 'none'}
                     borderRadius="14px"
-                    color={styles.textColor}
+                    color={currentModel == 'gpt-3.5-turbo' ? styles.textColor : styles.color}
                     fontSize="18px"
                     fontWeight={'700'}
                     onClick={() => onSelectModel('gpt-3.5-turbo')}
@@ -54,7 +54,7 @@ const ModelSelector = ({ currentModel, onSelectModel, outputCode, styles }) => {
                     h="70px"
                     boxShadow={currentModel === 'gemni' ? styles.buttonShadow : 'none'}
                     borderRadius="14px"
-                    color={styles.textColor}
+                    color={currentModel == 'gemni' ? styles.textColor : styles.color}
                     fontSize="18px"
                     fontWeight={'700'}
                     onClick={() => onSelectModel('gemni')}

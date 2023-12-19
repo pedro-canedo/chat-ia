@@ -13,7 +13,7 @@ export interface SidebarProps extends PropsWithChildren {
 function Sidebar(props: SidebarProps) {
   return (
     <Box
-      display={{ base: 'none', xl: 'block' }}
+      display={{ base: 'none', md: 'block' }}
       position="fixed"
       minH="100%"
     ></Box>
